@@ -1,0 +1,29 @@
+{
+  "name": "micro-frontend",
+  "version": "1.0.0",
+  "description": "Vite federation for micro-frontend",
+  "workspaces": [
+    "app-shell",
+    "catalog-app",
+    "cart-app",
+    "user-app"
+  ],
+  "scripts": {
+    "prestart": "concurrently \"cd app-shell && npm run build\" \"cd catalog-app && npm run build\" \"cd cart-app && npm run build\" \"cd user-app && npm run build\"",
+    "start:dev": "concurrently \"npm run dev -w app-shell\" \"npm run dev -w catalog-app\" \"npm run dev -w cart-app\" \"npm run dev -w user-app\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gajendra-NL/micro-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gajendra-NL/micro-frontend/issues"
+  },
+  "homepage": "https://github.com/Gajendra-NL/micro-frontend#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
